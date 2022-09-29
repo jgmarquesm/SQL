@@ -95,6 +95,15 @@ As Junçoes criam uma pseudo-tabela com base nas outras duas tabelas usando conc
     - Sem o filtro **WHERE**, o produto cartesiano faz uma consulta identica ao **CROSS JOIN**.
     - Com o filtro ***WHERE**, o produto cartesiano faz a mesma consulta que o **INNER JOIN**.
 - **INNER JOIN**: O Inner Join (Junçao interna) eh caracterizada por uma consulta que retorna apenas os dados que atender as condiçoes de junçao, isto e, os registros de uma tabela que tem relaçao com outra tabela.
-- Sintaxe:
+Sintaxe:
 `SELECT tabela_1.colunaS, tabela_2.colunaS FROM tabela_1 INNER JOIN tabela_2 ON tabela_1.coluna = tabela_2.coluna;`
-- 
+- **OUTER JOIN**: Uma junçao externa eh um consulta que nao requer que os registros de uma tabela possuam registros equivalentes. Pode ser subdividida em **LEFT OUTER JOIN** e **RIGHT OUTER JOIN**.
+    - **LEFT OUTER JOIN**: O resultado dessa consulta sempre contem os registros da tabela esquerda, mesmo quando nao exista registros correspondentes na tabela direita. Quando nao sao encontrados registros correspondentes na tabela direita os valores nao encontrados retornam como **null**.
+    Sintaxe:
+    `SELECT tabela_1.colunaS, tabela_2.colunaS FROM tabela_1 LEFT OUTER JOIN tabela_2 ON tabela_1.coluna = tabela_2.coluna;`
+    - **RIGHT OUTER JOIN**: O resultado dessa consulta sempre contem os registros da tabela direita, mesmo quando nao exista registros correspondentes na tabela esquerda. Quando nao sao encontrados registros correspondentes na tabela esquerda os valores nao encontrados retornam como **null**.
+    Sintaxe:
+    `SELECT tabela_1.colunaS, tabela_2.colunaS FROM tabela_1 RIGHT OUTER JOIN tabela_2 ON tabela_1.coluna = tabela_2.coluna;`
+    - **FULL OUTER JOIN**: Essa consulta apresenta todos os dados das tabelas a direita e a esquerda, mesmo que nao possuam correspondencia em outra tabela. A tabela combinada possuira assim todos os registros de ambas as tabelas e apresentara os valores nulos para os registros sem correspondencias.
+    Sintaxe:
+    `SELECT tabela_1.colunaS, tabela_2.colunaS FROM tabela_1 FULL OUTER JOIN tabela_2 ON tabela_1.coluna = tabela_2.coluna;`
