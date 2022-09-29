@@ -94,16 +94,35 @@ As Junçoes criam uma pseudo-tabela com base nas outras duas tabelas usando conc
 - **Produto Cartesiano**:
     - Sem o filtro **WHERE**, o produto cartesiano faz uma consulta identica ao **CROSS JOIN**.
     - Com o filtro ***WHERE**, o produto cartesiano faz a mesma consulta que o **INNER JOIN**.
-- **INNER JOIN**: O Inner Join (Junçao interna) eh caracterizada por uma consulta que retorna apenas os dados que atender as condiçoes de junçao, isto e, os registros de uma tabela que tem relaçao com outra tabela.
+- **INNER JOIN**: O Inner Join (Junçao interna) eh caracterizada por uma consulta que retorna apenas os dados que atender as condiçoes de junçao, isto e, os registros 
+- de uma tabela que tem relaçao com outra tabela.
 Sintaxe:
 `SELECT tabela_1.colunaS, tabela_2.colunaS FROM tabela_1 INNER JOIN tabela_2 ON tabela_1.coluna = tabela_2.coluna;`
-- **OUTER JOIN**: Uma junçao externa eh um consulta que nao requer que os registros de uma tabela possuam registros equivalentes. Pode ser subdividida em **LEFT OUTER JOIN** e **RIGHT OUTER JOIN**.
-    - **LEFT OUTER JOIN**: O resultado dessa consulta sempre contem os registros da tabela esquerda, mesmo quando nao exista registros correspondentes na tabela direita. Quando nao sao encontrados registros correspondentes na tabela direita os valores nao encontrados retornam como **null**.
+- **OUTER JOIN**: Uma junçao externa eh um consulta que nao requer que os registros de uma tabela possuam registros equivalentes. Pode ser subdividida em **LEFT OUTER
+JOIN** e **RIGHT OUTER JOIN**.
+    - **LEFT OUTER JOIN**: O resultado dessa consulta sempre contem os registros da tabela esquerda, mesmo quando nao exista registros correspondentes na tabela 
+    direita. Quando nao sao encontrados registros correspondentes na tabela direita os valores nao encontrados retornam como **null**.
     Sintaxe:
     `SELECT tabela_1.colunaS, tabela_2.colunaS FROM tabela_1 LEFT OUTER JOIN tabela_2 ON tabela_1.coluna = tabela_2.coluna;`
-    - **RIGHT OUTER JOIN**: O resultado dessa consulta sempre contem os registros da tabela direita, mesmo quando nao exista registros correspondentes na tabela esquerda. Quando nao sao encontrados registros correspondentes na tabela esquerda os valores nao encontrados retornam como **null**.
+    - **RIGHT OUTER JOIN**: O resultado dessa consulta sempre contem os registros da tabela direita, mesmo quando nao exista registros correspondentes na tabela 
+    esquerda. Quando nao sao encontrados registros correspondentes na tabela esquerda os valores nao encontrados retornam como **null**.
     Sintaxe:
     `SELECT tabela_1.colunaS, tabela_2.colunaS FROM tabela_1 RIGHT OUTER JOIN tabela_2 ON tabela_1.coluna = tabela_2.coluna;`
-    - **FULL OUTER JOIN**: Essa consulta apresenta todos os dados das tabelas a direita e a esquerda, mesmo que nao possuam correspondencia em outra tabela. A tabela combinada possuira assim todos os registros de ambas as tabelas e apresentara os valores nulos para os registros sem correspondencias.
+    - **FULL OUTER JOIN**: Essa consulta apresenta todos os dados das tabelas a direita e a esquerda, mesmo que nao possuam correspondencia em outra tabela. A tabela 
+    combinada possuira assim todos os registros de ambas as tabelas e apresentara os valores nulos para os registros sem correspondencias.
     Sintaxe:
     `SELECT tabela_1.colunaS, tabela_2.colunaS FROM tabela_1 FULL OUTER JOIN tabela_2 ON tabela_1.coluna = tabela_2.coluna;`
+- **CROSS JOIN**: Essa consulta eh usada quando queremos juntar duas ou mais tabelas por cruzamento. Ou seja, para cada linha de uma tabela queremos todos os dados da 
+outra tabela ou vice-versa.
+Sintaxe:
+    `SELECT tabela_1.colunaS, tabela_2.colunaS FROM tabela_1 CROSS JOIN tabela_2;`
+- **SELF JOIN**: Essa consulta eh uma junçao interna de uma tabela consigo mesma.
+Sintaxe:
+    `SELECT tabela_1.colunaS, tabela_2.colunaS FROM tabela_1 INNER JOIN tabela_2 ON condiçao1 AND condiçao2;`
+- **EQUI-JOIN** (**JOIN**): Junçao baseada em comparador, que usa APENAS comparaçoes de igualdade na junçao.
+- EQUI JOIN e outros JOINs:
+    - INNER JOIN pode ter as seguintes comparaçoes =, <, > e <>, enquanto o EQUI JOIN nao;
+    - INNER JOIN, LEFT OUTER JOIN e RIGHT OUTER JOIN podem ser consideradas EQUI JOIN desde que usem apenas o sinal de igualdade. 
+-  **NATURAL JOIN**: Eh um caso especial da **EQUI JOIN**. O resultado dessa junçao eh o connunto de todas as combinaçoes que sao iguais em seus nomes de atributos 
+comum. Exemplo: Ignora a PK e as FK e faz o JOIN usando o uma coluna da tabela 1 que tem o mesmo nome de uma coluna na tabela 2. ISSO PODE LEVAR A ERROS SE NAO FOREM 
+TOMADOS OS DEVIDOS CUIDADOS.
