@@ -74,3 +74,27 @@ Sintaxe com ROLLBACK:
 `   INSERT INTO nome_da_tabela (nome_da_coluna1, nome_da_coluna2) VALUES (valor1, valor2);`
 `   INSERT INTO nome_da_tabela (nome_da_coluna1, nome_da_coluna2) VALUES (valor11, valor22);`
 `ROLLBACK;`
+
+
+### Filtro com WHERE
+Alem de aplicar uma condiçao no **UPDATE** e no **DELETE**, tambem eh possivel filtrar o resultado das consultas usando 
+**WHERE**. Quando usamos o **WHERE**, o retorno da consulta eh filtrado com base em uma condiçao e a consulta retornada traz
+apenas os registros que que satisfazem a condiçao passada.
+Sintaxe:
+`SELECT nome_da_coluna1, nome_da_coluna2, ... FROM nome_da_tabela WHERE condiçao;`
+
+### Consulta em multiplas Tabelas
+Alem de consultas simples, em apenas uma tabela, podemos usar as relaçoes entre os dados de 2 ou mais tabelas para fazer uma
+consulta. Para isso temos alguns recursos como o Produto Cartesiano entre tabelas, cuja sintaxe eh:
+`SELECT tabela_1.colunaS, tabela_2.colunaS FROM tabela_1, tabela_2 WHERE tabela_1.coluna = tabela_2.coluna;`
+
+## Junçoes
+As Junçoes criam uma pseudo-tabela com base nas outras duas tabelas usando conceitos de **Teoria de Conjuntos**.
+
+- **Produto Cartesiano**:
+    - Sem o filtro **WHERE**, o produto cartesiano faz uma consulta identica ao **CROSS JOIN**.
+    - Com o filtro ***WHERE**, o produto cartesiano faz a mesma consulta que o **INNER JOIN**.
+- **INNER JOIN**: O Inner Join (Junçao interna) eh caracterizada por uma consulta que retorna apenas os dados que atender as condiçoes de junçao, isto e, os registros de uma tabela que tem relaçao com outra tabela.
+- Sintaxe:
+`SELECT tabela_1.colunaS, tabela_2.colunaS FROM tabela_1 INNER JOIN tabela_2 ON tabela_1.coluna = tabela_2.coluna;`
+- 
